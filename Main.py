@@ -30,4 +30,5 @@ async def Ping(ctx):
     await ctx.send('Pong', delete_after=3.0)
 
 # 절대로 토큰을 넣어둔 체 푸시 하지 말 것!
-bot.run('BOT_TOKEN')
+access_token = os.environ["BOT_TOKEN"]
+bot.run(access_token)
