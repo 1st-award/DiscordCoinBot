@@ -18,7 +18,6 @@ async def on_ready():
     print(f"시스템 사양: {platform.system()} {platform.release()} {os.name}")
     for guilds in bot.guilds:
         print(str(guilds.owner_id))
-    print(str(pwd))
     print("-" * 30)
 
 
