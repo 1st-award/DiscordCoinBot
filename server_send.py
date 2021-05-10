@@ -8,11 +8,12 @@ scope = [
     'https://spreadsheets.google.com/feeds',
     'https://www.googleapis.com/auth/drive',
 ]
-json_file_name = 'discordcoinbot-094ab3cac145.json'  # 올릴 때 삭제
-credentials = ServiceAccountCredentials.from_json_keyfile_name(json_file_name, scope)
+json_creds  = os.getenv("GOOGLE_KEYS")
+creds_dict = json.loads(json_creds)
+creds_dict["privatekey"] = creds_dict["private_key"].replace("\\\\n", "\n")
+credentials = ServiceAccountCredentials.from_json_keyfile_name(creds_dict, scope)
 gc = gspread.authorize(credentials)
-# 올릴 때 삭제
-coin_server_url = 'https://docs.google.com/spreadsheets/d/1ooI25uDwB6p8_Okeek_vjeU4Fl4dIJY8AscSO2nZ_Oc/edit#gid=0'
+coin_server_url = os.getenv("SERVER_URL")
 # 스프레스시트 문서 가져오기
 server_doc = gc.open_by_url(coin_server_url)
 # 시트 선택하기
