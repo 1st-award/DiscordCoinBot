@@ -68,5 +68,5 @@ async def ping(ctx):
     await ctx.send('Pong', delete_after=3.0)
 
 
-# 올릴 때 삭제
-bot.run('NDcyOTgxMTM4NjEzNDY5MTg0.W11AAw.bk4e9onJ8ERO8VWCSNbRJTchsFs')
+
+bot.run(os.environ["BOT_TOKEN"])
